@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Car</title>
+    <meta charset="utf-8">
+        <style>
+        :root {
+            /*Colors*/
+            --primary: rgb(4, 217, 255);
+            --secondary: rgb(247, 4, 255);
+            --third: #fbff00;
+            --fourth: #303030;
+            --car: #920000;
+            --wheel2: rgb(48, 48, 48);
+            --exhaust: #222222;
+            --exhaustFade: #2222227e;
+            --cloud: #444444;
+        }
+        
+        body {
+            margin: 0;
+        }
+
+        /* SVG */
+        #chassi {
+            transform: translate(25px, 30px)rotate(0deg);
+        }
+        #chassi1 {
+            transform: translate(0px, 0px)rotate(0deg);
+            fill:var(--car);
+        }
+        #chassi2 {
+            transform: translate(-11px, 0px)rotate(0deg);
+            fill:var(--car);
+        }
+        #chassi3 {
+            transform: translate(3px, 0px)rotate(0deg);
+            fill:var(--car);
+        }
+        #chassi4 {
+            transform: translate(-5px, -4px)rotate(0deg);
+            fill:var(--car);
+        }
+        #chassi5 {
+            transform: translate(-7px, -3.15px)rotate(45deg);
+            fill:var(--car);
+        }
+        #chassi6 {
+            transform: translate(3px, -3.15px)rotate(45deg);
+            fill:var(--car);
+        }
+        #chassi7 {
+            transform: translate(-14.5px, 0px)rotate(0deg);
+            fill:var(--car);
+        }
+        #frontwheel {
+            transform: translate(32px,31.5px);
+            animation: spinningfrontwheel 0.5s infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes spinningfrontwheel{
+            0%{
+                transform:translate(32px,31.5px)rotate(0deg);
+            }
+            100%{
+                transform:translate(32px,31.5px)rotate(360deg);
+            }
+        }
+        #backwheel {
+            transform: translate(16px,31.5px);
+            animation: spinningbackwheel 0.5s infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes spinningbackwheel{
+            0%{
+                transform:translate(16px,31.5px)rotate(0deg);
+            }
+            100%{
+                transform:translate(16px,31.5px)rotate(360deg);
+            }
+        }
+        #exhaust {
+            fill:var(--exhaust);
+            transform: translate(7px,25px)rotate(30deg);
+            position: relative;
+            animation: k_exhaust 3s infinite;
+            animation-timing-function:ease-in;
+        }
+        @keyframes k_exhaust{
+            0% {
+                transform:translate(9px,35px) scale(0.3)rotate(0deg);
+            }
+            100%{
+                transform:translate(-10px,-5px) scale(2.2)rotate(270deg);
+                fill: var(--exhaustFade);
+            }
+        }
+        #cloud{
+            fill:var(--cloud);
+            transform: translate(15px, 10px)rotate(0deg);
+        }
+        #car{
+            animation: drive 3s infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes drive{
+            0% {
+                transform:translate(-35px,0px);
+            }
+            100%{
+                transform:translate(40px,0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg viewbox="-27.5 -2.5 100 45">
+        <!--Background-->
+        <rect id="background" x="0" y="0" width="45" height="45" fill="url(#Background--Gradient)"></rect>
+        <defs>
+            <linearGradient id="Background--Gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="var(--primary)"></stop>
+                <stop offset="40%" stop-color="var(--secondary)"></stop>
+                <stop offset="60%" stop-color="var(--third)"></stop>
+                <stop offset="70%" stop-color="var(--fourth)"></stop>
+            </linearGradient>
+        </defs>
+
+        <!--Car-->
+        <g id="car">
+            <g id="chassi">
+                <rect id="chassi1" x="-2" y="-2" width="4" height="4" ></rect>
+                <rect id="chassi2" x="-2" y="-2" width="12" height="4"></rect>
+                <rect id="chassi3" x="-2" y="-2" width="10" height="4"></rect>
+                <rect id="chassi4" x="-2" y="-2" width="10" height="6"></rect>
+                <rect id="chassi5" x="-2" y="-2" width="4" height="6"></rect>
+                <rect id="chassi6" x="-2" y="-2" width="6" height="4"></rect>
+                <line id="chassi7" x1="0" y1="0" x2="3" y2="0" stroke="var(--car)" stroke-linecap="round" stroke-width="2" />
+            </g>
+    
+            <g id="frontwheel">
+                <circle cx="0" cy="0" r="2.9"/>
+                <circle cx="0" cy="0" r="2.4" fill="var(--wheel2)"/>
+                <line x1="0" y1="-2.8" x2="0" y2="2.8" stroke="black" stroke-width="0.4" />
+                <line x1="-2.5" y1="0" x2="2.5" y2="0" stroke="black" stroke-width="0.4" />
+                <line x1="-2" y1="-2" x2="2" y2="2" stroke="black" stroke-width="0.4" />
+                <line x1="-2" y1="2" x2="2" y2="-2" stroke="black" stroke-width="0.4" />
+                <circle cx="0" cy="0" r="0.6"/>
+            </g>
+    
+            <g id="backwheel">
+                <circle cx="0" cy="0" r="2.9"/>
+                <circle cx="0" cy="0" r="2.4" fill="var(--wheel2)"/>
+                <line x1="0" y1="-2.8" x2="0" y2="2.8" stroke="black" stroke-width="0.4" />
+                <line x1="-2.5" y1="0" x2="2.5" y2="0" stroke="black" stroke-width="0.4" />
+                <line x1="-2" y1="-2" x2="2" y2="2" stroke="black" stroke-width="0.4" />
+                <line x1="2" y1="-2" x2="-2" y2="2" stroke="black" stroke-width="0.4" />
+                <circle cx="0" cy="0" r="0.6"/>
+            </g>
+    
+            <g id="exhaust">
+                <circle cx="-1" cy="-1" r="1"/>
+                <circle cx="0.4" cy="-1" r="1"/>
+                <circle cx="-1" cy="0.4" r="1"/>
+                <circle cx="0.4" cy="0.4" r="1"/>
+            </g>
+        </g>
+
+        <g id="cloud">
+            <circle cx="-6" cy="0" r="4"/>
+            <circle cx="-3" cy="-4" r="4"/>
+            <circle cx="0" cy="0" r="4"/>
+            <circle cx="3" cy="-4" r="4"/>
+            <circle cx="6" cy="0" r="4"/>
+        </g>
+
+        <!--Background, works like a green screen-->
+        <g id="whiteboxes">
+            <rect id="wbox1" x="45" y="0" width="45" height="45" fill="white" ></rect>
+            <rect id="wbox2" x="-45" y="0" width="45" height="45" fill="white" ></rect>
+            <rect id="wbox3" x="0" y="-45" width="45" height="45" fill="white" ></rect>
+        </g>
+        <!--Button_start-->
+        <g onclick="document.getElementById('car').style.animationPlayState='running';document.getElementById('exhaust').style.animationPlayState='running';document.getElementById('frontwheel').style.animationPlayState='running';document.getElementById('backwheel').style.animationPlayState='running'">
+            <rect x="-20" y="15" width="15" height="5" rx="1" fill="green" />
+            <text x="-13" y="18" font-size="2" text-anchor="middle" fill="white">Play</text>
+        </g>
+        <!--Button_stop-->
+        <g onclick="document.getElementById('car').style.animationPlayState='paused';document.getElementById('exhaust').style.animationPlayState='paused';document.getElementById('frontwheel').style.animationPlayState='paused';document.getElementById('backwheel').style.animationPlayState='paused'">
+            <rect x="-20" y="30" width="15" height="5" rx="1" fill="red" />
+            <text x="-13" y="33" font-size="2" text-anchor="middle" fill="white">Pause</text>
+        </g>
+    </svg>
+    </button>
+</body>
+</html>
